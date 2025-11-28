@@ -1,0 +1,58 @@
+{
+  "app": {
+    "title": "Financing Calculator",
+    "description": "Compare financing options with PRICE and SAC amortization systems"
+  },
+  "simulation": {
+    "financingType": "Financing Type",
+    "price": "PRICE (Fixed Installments)",
+    "sac": "SAC (Constant Amortization)",
+    "principal": "Principal Amount",
+    "interestRate": "Monthly Interest Rate (%)",
+    "duration": "Duration (months)",
+    "currency": "Currency",
+    "close": "Close",
+    "addNew": "Add Simulation",
+    "reset": "Reset",
+    "payFaster": {
+      "enable": "I want to pay the debt faster",
+      "maxPayment": "What is the maximum value you can pay per month?",
+      "apply": "Apply"
+    }
+  },
+  "payFaster": {
+    "belowMinimum": "Maximum payment must be at least {minimum}",
+    "noInstallments": "Cannot calculate: no installments found"
+  },
+  "table": {
+    "installment": "#",
+    "value": "Value",
+    "interest": "Interest",
+    "amortization": "Amort.",
+    "balance": "Balance",
+    "extra": "Extra",
+    "monthlyTotal": "Monthly Total",
+    "clearExtras": "Clear All Extras"
+  },
+  "summary": {
+    "totalCost": "Total Cost",
+    "totalInterest": "Total Interest",
+    "monthsToPayoff": "Months to Payoff"
+  },
+  "limits": {
+    "maxSimulations": "Maximum of 10 simulations reached"
+  },
+  "currency": {
+    "brl": "BRL (R$)",
+    "usd": "USD ($)"
+  },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "language": {
+    "en": "English",
+    "pt": "Portuguese"
+  }
+}

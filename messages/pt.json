@@ -1,0 +1,58 @@
+{
+  "app": {
+    "title": "Calculadora de Financiamento",
+    "description": "Compare opções de financiamento com os sistemas de amortização PRICE e SAC"
+  },
+  "simulation": {
+    "financingType": "Tipo de Financiamento",
+    "price": "PRICE (Parcelas Fixas)",
+    "sac": "SAC (Amortização Constante)",
+    "principal": "Valor Principal",
+    "interestRate": "Taxa de Juros Mensal (%)",
+    "duration": "Duração (meses)",
+    "currency": "Moeda",
+    "close": "Fechar",
+    "addNew": "Adicionar Simulação",
+    "reset": "Resetar",
+    "payFaster": {
+      "enable": "Quero pagar a dívida mais rápido",
+      "maxPayment": "Qual o valor máximo que você pode pagar por mês?",
+      "apply": "Aplicar"
+    }
+  },
+  "payFaster": {
+    "belowMinimum": "O pagamento máximo deve ser pelo menos {minimum}",
+    "noInstallments": "Não é possível calcular: nenhuma parcela encontrada"
+  },
+  "table": {
+    "installment": "#",
+    "value": "Valor",
+    "interest": "Juros",
+    "amortization": "Amort.",
+    "balance": "Saldo",
+    "extra": "Extra",
+    "monthlyTotal": "Total Mensal",
+    "clearExtras": "Limpar Todos Extras"
+  },
+  "summary": {
+    "totalCost": "Custo Total",
+    "totalInterest": "Total de Juros",
+    "monthsToPayoff": "Meses para Quitação"
+  },
+  "limits": {
+    "maxSimulations": "Máximo de 10 simulações atingido"
+  },
+  "currency": {
+    "brl": "BRL (R$)",
+    "usd": "USD ($)"
+  },
+  "theme": {
+    "light": "Claro",
+    "dark": "Escuro",
+    "system": "Sistema"
+  },
+  "language": {
+    "en": "Inglês",
+    "pt": "Português"
+  }
+}
