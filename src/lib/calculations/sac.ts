@@ -65,14 +65,17 @@ export function calculateSacInstallments(
       balance
     );
 
+    // Calculate actual extra paid (might be less than requested in final month)
+    const actualExtraPaid = totalAmortization - baseAmort;
+
     // Update balance with total amortization
     balance = Math.max(0, balance - totalAmortization);
 
     // Base installment (without extra)
     const baseInstallment = interestPortion + baseAmort;
 
-    // Total payment for this month (base + extra)
-    const totalPayment = baseInstallment + extraAmort;
+    // Total payment for this month (base + actual extra)
+    const totalPayment = baseInstallment + actualExtraPaid;
 
     // Track totals
     totalCost += totalPayment;
@@ -84,7 +87,7 @@ export function calculateSacInstallments(
       interestPortion: roundToTwo(interestPortion),
       amortizationPortion: roundToTwo(baseAmort),
       remainingBalance: roundToTwo(balance),
-      extraAmortization: extraAmort,
+      extraAmortization: roundToTwo(actualExtraPaid),
       totalPayment: roundToTwo(totalPayment),
     });
 

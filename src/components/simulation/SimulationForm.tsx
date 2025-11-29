@@ -23,15 +23,17 @@ import {
   setMaxMonthlyPayment,
   applyPayFasterCalculation,
 } from '@/store/slices/simulationsSlice';
-import { Simulation, FinancingType } from '@/types/simulation';
+import { Simulation, FinancingType, SimulationResult } from '@/types/simulation';
 import { calculateInstallments } from '@/lib/calculations';
 import { formatCurrency } from '@/lib/formatters/currency';
+import { InvestComparisonModal } from './InvestComparisonModal';
 
 interface SimulationFormProps {
   simulation: Simulation;
+  simulationResult: SimulationResult;
 }
 
-export function SimulationForm({ simulation }: SimulationFormProps) {
+export function SimulationForm({ simulation, simulationResult }: SimulationFormProps) {
   const t = useTranslations('simulation');
   const tPayFaster = useTranslations('payFaster');
   const dispatch = useAppDispatch();
@@ -215,6 +217,13 @@ export function SimulationForm({ simulation }: SimulationFormProps) {
             {validationError && (
               <p className="text-sm text-destructive">{validationError}</p>
             )}
+            <div className="mt-3">
+              <InvestComparisonModal
+                simulation={simulation}
+                simulationResult={simulationResult}
+                currency={currency}
+              />
+            </div>
           </div>
         )}
       </div>

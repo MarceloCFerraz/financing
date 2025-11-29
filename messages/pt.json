@@ -54,5 +54,29 @@
   "language": {
     "en": "Inglês",
     "pt": "Português"
+  },
+  "investComparison": {
+    "trigger": "Deveria investir ao invés de amortizar?",
+    "title": "Comparação de Investimento",
+    "annualRate": "Taxa de Retorno Anual do Investimento (%)",
+    "maxPayment": "Pagamento Mensal Máximo",
+    "calculate": "Calcular",
+    "scenario1Title": "Pagar Rápido, Depois Investir",
+    "scenario2Title": "Investir a Diferença",
+    "scenario3Title": "Abordagem Equilibrada",
+    "totalAccumulated": "Total Acumulado",
+    "monthsToPayoff": "Meses para Quitação",
+    "totalInvested": "Total Investido",
+    "table": {
+      "month": "#",
+      "installment": "Parcela",
+      "extra": "Extra",
+      "debtLeft": "Saldo Devedor",
+      "invested": "Investido"
+    },
+    "disclaimer": {
+      "title": "Aviso Importante",
+      "message": "Esta é uma simulação financeira apenas para fins educacionais e de planejamento. Os resultados são baseados nas premissas e parâmetros que você fornece. Os retornos reais de investimento e resultados financeiros podem variar significativamente. Não nos responsabilizamos por quaisquer decisões financeiras tomadas com base nesta simulação. Por favor, consulte um consultor financeiro qualificado antes de tomar decisões de investimento ou pagamento de dívidas."
+    }
   }
 }

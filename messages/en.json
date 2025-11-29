@@ -54,5 +54,29 @@
   "language": {
     "en": "English",
     "pt": "Portuguese"
+  },
+  "investComparison": {
+    "trigger": "Should I invest instead?",
+    "title": "Investment Comparison",
+    "annualRate": "Annual Investment Return Rate (%)",
+    "maxPayment": "Maximum Monthly Payment",
+    "calculate": "Calculate",
+    "scenario1Title": "Pay Fast, Then Invest",
+    "scenario2Title": "Invest the Difference",
+    "scenario3Title": "Balanced Approach",
+    "totalAccumulated": "Total Accumulated",
+    "monthsToPayoff": "Months to Payoff",
+    "totalInvested": "Total Invested",
+    "table": {
+      "month": "#",
+      "installment": "Installment",
+      "extra": "Extra",
+      "debtLeft": "Debt Left",
+      "invested": "Invested"
+    },
+    "disclaimer": {
+      "title": "Important Notice",
+      "message": "This is a financial simulation for educational and planning purposes only. Results are based on the assumptions and parameters you provide. Actual investment returns and financial outcomes may vary significantly. We are not responsible for any financial decisions made based on this simulation. Please consult with a qualified financial advisor before making investment or debt payment decisions."
+    }
   }
 }

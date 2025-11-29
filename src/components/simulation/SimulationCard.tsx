@@ -67,7 +67,7 @@ export function SimulationCard({ simulationId }: SimulationCardProps) {
         )}
       </CardHeader>
       <CardContent className="space-y-4">
-        <SimulationForm simulation={simulation} />
+        <SimulationForm simulation={simulation} simulationResult={result} />
         <SimulationSummary result={result} currency={currency} />
         <SimulationTable
           simulationId={simulation.id}

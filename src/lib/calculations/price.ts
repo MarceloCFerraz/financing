@@ -81,11 +81,14 @@ export function calculatePriceInstallments(
       balance
     );
 
+    // Calculate actual extra paid (might be less than requested in final month)
+    const actualExtraPaid = totalAmortization - baseAmortization;
+
     // Update balance with total amortization
     balance = Math.max(0, balance - totalAmortization);
 
-    // Total payment for this month (base + extra)
-    const totalPayment = baseInstallment + extraAmort;
+    // Total payment for this month (base + actual extra)
+    const totalPayment = baseInstallment + actualExtraPaid;
 
     // Track totals
     totalCost += totalPayment;
@@ -97,7 +100,7 @@ export function calculatePriceInstallments(
       interestPortion: roundToTwo(interestPortion),
       amortizationPortion: roundToTwo(baseAmortization),
       remainingBalance: roundToTwo(balance),
-      extraAmortization: extraAmort,
+      extraAmortization: roundToTwo(actualExtraPaid),
       totalPayment: roundToTwo(totalPayment),
     });
 
