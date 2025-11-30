@@ -3,6 +3,11 @@
     "title": "Financing Calculator",
     "description": "Compare financing options with PRICE and SAC amortization systems"
   },
+  "sideMenu": {
+    "currency": "Currency",
+    "language": "Language",
+    "theme": "Theme"
+  },
   "simulation": {
     "financingType": "Financing Type",
     "price": "PRICE (Fixed Installments)",

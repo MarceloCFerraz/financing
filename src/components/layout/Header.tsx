@@ -23,6 +23,7 @@ import {
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { setGlobalCurrency } from '@/store/slices/simulationsSlice';
 import { CurrencyCode } from '@/types/simulation';
+import { Label } from '../ui/label';
 
 export function Header() {
   const t = useTranslations();
@@ -66,14 +67,14 @@ export function Header() {
               <SheetHeader>
                 <SheetTitle>{t('app.title')}</SheetTitle>
               </SheetHeader>
-              <div className="mt-6 flex flex-col gap-4">
+              <div className="mt-6 flex flex-col gap-4 items-start">
                 {/* Currency Selector */}
                 <div className="space-y-2">
-                  <label className="text-sm font-medium">
-                    {t('simulation.currency')}
-                  </label>
+                  <Label className="text-sm font-medium">
+                    {t('sideMenu.currency')}
+                  </Label>
                   <Select value={currency} onValueChange={handleCurrencyChange}>
-                    <SelectTrigger className="w-full">
+                    <SelectTrigger>
                       <DollarSign className="mr-2 h-4 w-4" />
                       <SelectValue />
                     </SelectTrigger>
@@ -86,9 +87,9 @@ export function Header() {
 
                 {/* Language Selector */}
                 <div className="space-y-2">
-                  <label className="text-sm font-medium">Language / Idioma</label>
+                  <Label className="text-sm font-medium">{t('sideMenu.language')}</Label>
                   <Select value={locale} onValueChange={handleLocaleChange}>
-                    <SelectTrigger className="w-full">
+                    <SelectTrigger>
                       <Languages className="mr-2 h-4 w-4" />
                       <SelectValue />
                     </SelectTrigger>
@@ -101,12 +102,12 @@ export function Header() {
 
                 {/* Theme Toggle */}
                 <div className="space-y-2">
-                  <label className="text-sm font-medium">
-                    {theme === 'dark' ? t('theme.light') : t('theme.dark')}
-                  </label>
+                  <Label className="text-sm font-medium">
+                    {t('sideMenu.theme')}
+                  </Label>
                   <Button
                     variant="outline"
-                    className="w-full justify-start"
+                    className="justify-start"
                     onClick={toggleTheme}
                   >
                     <Sun className="mr-2 h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />

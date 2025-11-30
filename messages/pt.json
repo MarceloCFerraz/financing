@@ -3,6 +3,11 @@
     "title": "Calculadora de Financiamento",
     "description": "Compare opções de financiamento com os sistemas de amortização PRICE e SAC"
   },
+  "sideMenu": {
+    "currency": "Moeda",
+    "language": "Idioma",
+    "theme": "Tema"
+  },
   "simulation": {
     "financingType": "Tipo de Financiamento",
     "price": "PRICE (Parcelas Fixas)",
