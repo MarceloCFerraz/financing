@@ -43,6 +43,12 @@ gcloud iam service-accounts keys create key.json \
 Step 5: Create Artifact Registry Repository
 
 gcloud artifacts repositories create docker-repo \
-  --repository-format=docker \
-  --location=us-central1 \
-  --description="Docker repository"
+    --repository-format=docker \
+    --location=southamerica-east1 \
+    --description="Docker repository"
+
+gcloud iam service-accounts add-iam-policy-binding \
+    701379657084-compute@developer.gserviceaccount.com \
+    --member="serviceAccount:github-actions@financing-app-479820.iam.gserviceaccount.com" \
+    --role="roles/iam.serviceAccountUser" \
+    --project=financing-app-479820
