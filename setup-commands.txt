@@ -1,0 +1,48 @@
+Run these in https://shell.cloud.google.com or locally with gcloud:
+
+# Set your project
+gcloud config set project YOUR_PROJECT_ID
+
+# Enable required APIs
+gcloud services enable cloudbuild.googleapis.com
+gcloud services enable run.googleapis.com
+gcloud services enable artifactregistry.googleapis.com
+
+Step 3: Create a Service Account
+
+# Create service account
+gcloud iam service-accounts create github-actions \
+  --display-name="GitHub Actions"
+
+# Grant permissions
+gcloud projects add-iam-policy-binding YOUR_PROJECT_ID \
+  --member="serviceAccount:github-actions@YOUR_PROJECT_ID.iam.gserviceaccount.com" \
+  --role="roles/run.admin"
+
+gcloud projects add-iam-policy-binding YOUR_PROJECT_ID \
+  --member="serviceAccount:github-actions@YOUR_PROJECT_ID.iam.gserviceaccount.com" \
+  --role="roles/storage.admin"
+
+gcloud projects add-iam-policy-binding YOUR_PROJECT_ID \
+  --member="serviceAccount:github-actions@YOUR_PROJECT_ID.iam.gserviceaccount.com" \
+  --role="roles/artifactregistry.admin"
+
+gcloud iam service-accounts add-iam-policy-binding \
+  github-actions@YOUR_PROJECT_ID.iam.gserviceaccount.com \
+  --member="serviceAccount:github-actions@YOUR_PROJECT_ID.iam.gserviceaccount.com" \
+  --role="roles/iam.serviceAccountUser" \
+  --project=YOUR_PROJECT_ID
+
+Step 4: Create & Download Service Account Key
+
+gcloud iam service-accounts keys create key.json \
+  --iam-account=github-actions@YOUR_PROJECT_ID.iam.gserviceaccount.com
+
+# This creates a key.json file - keep it safe, don't commit it!
+
+Step 5: Create Artifact Registry Repository
+
+gcloud artifacts repositories create docker-repo \
+  --repository-format=docker \
+  --location=us-central1 \
+  --description="Docker repository"
