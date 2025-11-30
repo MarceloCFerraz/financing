@@ -1,8 +1,9 @@
 'use client';
 
+import { useState } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { useRouter, usePathname } from 'next/navigation';
-import { Moon, Sun, Languages, DollarSign } from 'lucide-react';
+import { Moon, Sun, Languages, DollarSign, Menu } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import { Button } from '@/components/ui/button';
 import {
@@ -12,6 +13,13 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from '@/components/ui/sheet';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { setGlobalCurrency } from '@/store/slices/simulationsSlice';
 import { CurrencyCode } from '@/types/simulation';
@@ -24,10 +32,12 @@ export function Header() {
   const { theme, setTheme } = useTheme();
   const dispatch = useAppDispatch();
   const currency = useAppSelector((state) => state.simulations.currency);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const handleLocaleChange = (newLocale: string) => {
     const newPath = pathname.replace(`/${locale}`, `/${newLocale}`);
     router.push(newPath);
+    setMobileMenuOpen(false);
   };
 
   const handleCurrencyChange = (newCurrency: CurrencyCode) => {
@@ -43,10 +53,79 @@ export function Header() {
       <div className="relative flex h-14 items-center justify-center px-4">
         <h1 className="text-lg font-semibold">{t('app.title')}</h1>
 
-        <div className="absolute right-4 flex items-center gap-2">
+        {/* Mobile Menu */}
+        <div className="absolute right-4 sm:hidden">
+          <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon">
+                <Menu className="h-5 w-5" />
+                <span className="sr-only">Menu</span>
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right">
+              <SheetHeader>
+                <SheetTitle>{t('app.title')}</SheetTitle>
+              </SheetHeader>
+              <div className="mt-6 flex flex-col gap-4">
+                {/* Currency Selector */}
+                <div className="space-y-2">
+                  <label className="text-sm font-medium">
+                    {t('simulation.currency')}
+                  </label>
+                  <Select value={currency} onValueChange={handleCurrencyChange}>
+                    <SelectTrigger className="w-full">
+                      <DollarSign className="mr-2 h-4 w-4" />
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="BRL">{t('currency.brl')}</SelectItem>
+                      <SelectItem value="USD">{t('currency.usd')}</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+
+                {/* Language Selector */}
+                <div className="space-y-2">
+                  <label className="text-sm font-medium">Language / Idioma</label>
+                  <Select value={locale} onValueChange={handleLocaleChange}>
+                    <SelectTrigger className="w-full">
+                      <Languages className="mr-2 h-4 w-4" />
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="en">{t('language.en')}</SelectItem>
+                      <SelectItem value="pt">{t('language.pt')}</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+
+                {/* Theme Toggle */}
+                <div className="space-y-2">
+                  <label className="text-sm font-medium">
+                    {theme === 'dark' ? t('theme.light') : t('theme.dark')}
+                  </label>
+                  <Button
+                    variant="outline"
+                    className="w-full justify-start"
+                    onClick={toggleTheme}
+                  >
+                    <Sun className="mr-2 h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+                    <Moon className="absolute ml-2 h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+                    <span className="ml-6">
+                      {theme === 'dark' ? t('theme.light') : t('theme.dark')}
+                    </span>
+                  </Button>
+                </div>
+              </div>
+            </SheetContent>
+          </Sheet>
+        </div>
+
+        {/* Desktop Menu */}
+        <div className="absolute right-4 hidden sm:flex items-center gap-2">
           {/* Currency Selector */}
           <Select value={currency} onValueChange={handleCurrencyChange}>
-            <SelectTrigger>
+            <SelectTrigger className="w-auto">
               <DollarSign className="mr-2 h-4 w-4" />
               <SelectValue />
             </SelectTrigger>
@@ -58,7 +137,7 @@ export function Header() {
 
           {/* Language Selector */}
           <Select value={locale} onValueChange={handleLocaleChange}>
-            <SelectTrigger>
+            <SelectTrigger className="w-auto">
               <Languages className="mr-2 h-4 w-4" />
               <SelectValue />
             </SelectTrigger>

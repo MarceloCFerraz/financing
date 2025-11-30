@@ -135,7 +135,7 @@ export function SimulationForm({ simulation, simulationResult }: SimulationFormP
       </div>
 
       {/* Row 2: Principal and Interest Rate */}
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div className="space-y-2">
           <Label htmlFor={`principal-${simulation.id}`}>{t('principal')}</Label>
           <Input

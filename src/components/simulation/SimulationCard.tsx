@@ -49,7 +49,7 @@ export function SimulationCard({ simulationId }: SimulationCardProps) {
   const canClose = simulationsCount > 1;
 
   return (
-    <Card className="min-w-[480px] flex-shrink-0 border-border/40 shadow-none">
+    <Card className="max-w-full sm:w-auto sm:min-w-[480px] flex-shrink-0 border-border/40 shadow-none">
       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
         <span className="text-sm font-medium text-muted-foreground">
           {simulation.financingType}

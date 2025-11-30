@@ -91,9 +91,9 @@ export function SimulationTable({
           </Button>
         </div>
       )}
-      <div className="rounded-md border border-border/40">
-      <div className="max-h-[300px] overflow-auto">
-        <Table className="w-full">
+      <div className="rounded-md border border-border/40 overflow-x-auto">
+      <div className="max-h-[300px] overflow-y-auto">
+        <Table className="w-full min-w-[640px]">
           <TableHeader className="sticky top-0 bg-background">
             <TableRow>
               <TableHead className="w-8 text-center">{t('installment')}</TableHead>
