@@ -27,7 +27,7 @@ export function AddSimulationButton() {
   return (
     <div className="flex justify-center sm:justify-start w-full sm:w-auto">
       <Button
-        className="rounded shrink-0 border border-border bg-transparent text-muted-foreground transition-colors hover:bg-foreground/10 hover:border-border hover:text-foreground flex items-center justify-center"
+        className="rounded-full shrink-0 border border-border bg-transparent text-foreground transition-colors hover:bg-foreground/10 hover:border-border hover:text-foreground hover:font-semibold flex items-center justify-center"
         onClick={handleClick}
         title={t("simulation.addNew")}
       >
