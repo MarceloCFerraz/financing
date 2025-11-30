@@ -27,7 +27,7 @@
   },
   "payFaster": {
     "belowMinimum": "O pagamento máximo deve ser pelo menos {minimum}",
-    "noInstallments": "Não é possível calcular: nenhuma parcela encontrada"
+    "noInstallments": "O número de parcelas deve ser maior que zero"
   },
   "table": {
     "installment": "#",

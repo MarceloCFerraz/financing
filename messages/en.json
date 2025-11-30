@@ -27,7 +27,7 @@
   },
   "payFaster": {
     "belowMinimum": "Maximum payment must be at least {minimum}",
-    "noInstallments": "Cannot calculate: no installments found"
+    "noInstallments": "The number of installments must be greater than zero"
   },
   "table": {
     "installment": "#",

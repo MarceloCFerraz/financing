@@ -91,10 +91,9 @@ export function SimulationForm({ simulation, simulationResult }: SimulationFormP
 
     if (simulation.maxMonthlyPayment < firstInstallment) {
       setValidationError(
-        tPayFaster('belowMinimum').replace(
-          '{minimum}',
-          formatCurrency(firstInstallment, currency)
-        )
+        tPayFaster('belowMinimum', {
+          minimum: formatCurrency(firstInstallment, currency)
+        })
       );
       return;
     }
